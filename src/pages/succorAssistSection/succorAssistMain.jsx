@@ -9,7 +9,12 @@ export default function SuccorAssistMain () {
                 </div>
                 <div className="w-full h-1/2 border border-amber-50">
                     <Controls 
-                        
+                    start={handleStart}
+                    pause={handlePause}
+                    stop={handleStop}
+                    labelStart="Begin"
+                    labelPause="Hold"
+                    labelStop="End"
                     />
                 </div>
             </div>
