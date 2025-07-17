@@ -1,222 +1,128 @@
 [
   {
-    "accidentType": "Crash",
-    "keywords": ["construction", "back pain", "heavy object"],
-    "accidentCause": "Driver ran a red light at high speed",
-    "affectedParts": {
-      "upperBody": {
-        "head": "severe",
-        "neck": "severe"
+    "accident": {
+      "accidentType": "Fall",
+      "keywords": ["elderly", "stairs", "hip fracture"],
+      "accidentCause": "Fell down stairs at home",
+      "affectedParts": {
+        "upperBody": {
+          "head": "moderate",
+          "neck": "minor"
+        },
+        "body": {
+          "back": "moderate",
+          "chest": "minor"
+        },
+        "lowerBody": {
+          "leftLeg": "severe",
+          "rightLeg": "moderate",
+          "leftFoot": "minor",
+          "rightFoot": "unaffected"
+        }
       },
-      "body": {
-        "leftHand": "moderate",
-        "rightHand": "moderate",
-        "chest": "severe",
-        "back": "severe"
-      },
-      "lowerBody": {
-        "leftLeg": "severe",
-        "rightLeg": "severe"
-      }
-    },
-    "aidRecommendation": []
+      "aidRecommendation": ["keep the person still", "elevate legs", "apply cold compress"]
+    }
   },
   {
-    "accidentType": "Fall",
-    "keywords": ["elderly", "slippery floor", "bathroom"],
-    "accidentCause": "Slipped on wet bathroom tiles",
-    "affectedParts": {
-      "upperBody": {
-        "head": "minor",
-        "neck": "unaffected"
+    "accident": {
+      "accidentType": "Burn",
+      "keywords": ["kitchen", "hot oil", "cooking"],
+      "accidentCause": "Hot oil spilled while frying food",
+      "affectedParts": {
+        "upperBody": {
+          "head": "unaffected",
+          "neck": "minor"
+        },
+        "body": {
+          "leftArm": "severe",
+          "rightArm": "moderate",
+          "leftHand": "severe",
+          "rightHand": "moderate",
+          "chest": "moderate"
+        },
+        "lowerBody": {
+          "leftLeg": "minor",
+          "rightLeg": "unaffected"
+        }
       },
-      "body": {
-        "leftHand": "moderate",
-        "rightHand": "minor",
-        "chest": "minor",
-        "back": "moderate"
-      },
-      "lowerBody": {
-        "leftLeg": "severe",
-        "rightLeg": "moderate"
-      }
-    },
-    "aidRecommendation": []
+      "aidRecommendation": ["cool burn with water", "cover with clean cloth", "seek medical help"]
+    }
   },
   {
-    "accidentType": "Burn",
-    "keywords": ["kitchen", "oil spill", "fire"],
-    "accidentCause": "Hot oil splashed during cooking",
-    "affectedParts": {
-      "upperBody": {
-        "head": "unaffected",
-        "neck": "minor"
+    "accident": {
+      "accidentType": "Sports Injury",
+      "keywords": ["football", "twisted ankle", "tackle"],
+      "accidentCause": "Tackled during football game",
+      "affectedParts": {
+        "upperBody": {
+          "head": "minor",
+          "neck": "unaffected"
+        },
+        "body": {
+          "leftArm": "unaffected",
+          "rightArm": "minor",
+          "chest": "minor"
+        },
+        "lowerBody": {
+          "leftLeg": "severe",
+          "rightLeg": "moderate",
+          "leftFoot": "severe",
+          "rightFoot": "minor"
+        }
       },
-      "body": {
-        "leftHand": "severe",
-        "rightHand": "severe",
-        "chest": "moderate",
-        "back": "unaffected"
-      },
-      "lowerBody": {
-        "leftLeg": "unaffected",
-        "rightLeg": "unaffected"
-      }
-    },
-    "aidRecommendation": []
+      "aidRecommendation": ["immobilize leg", "apply ice", "elevate foot"]
+    }
   },
   {
-    "accidentType": "Collision",
-    "keywords": ["bicycle", "hit by car", "shoulder pain"],
-    "accidentCause": "Bicyclist hit by turning vehicle",
-    "affectedParts": {
-      "upperBody": {
-        "head": "moderate",
-        "neck": "minor"
+    "accident": {
+      "accidentType": "Electric Shock",
+      "keywords": ["wiring", "outlet", "electrocution"],
+      "accidentCause": "Touched exposed wire during repair",
+      "affectedParts": {
+        "upperBody": {
+          "head": "unaffected",
+          "neck": "unaffected"
+        },
+        "body": {
+          "leftArm": "severe",
+          "rightArm": "severe",
+          "leftHand": "severe",
+          "rightHand": "severe",
+          "chest": "moderate",
+          "back": "moderate"
+        },
+        "lowerBody": {
+          "leftLeg": "minor",
+          "rightLeg": "minor"
+        }
       },
-      "body": {
-        "leftHand": "minor",
-        "rightHand": "moderate",
-        "chest": "moderate",
-        "back": "minor"
-      },
-      "lowerBody": {
-        "leftLeg": "severe",
-        "rightLeg": "moderate"
-      }
-    },
-    "aidRecommendation": []
+      "aidRecommendation": ["do not touch victim", "turn off power", "call emergency services immediately"]
+    }
   },
   {
-    "accidentType": "Fall from Height",
-    "keywords": ["ladder", "construction", "spinal injury"],
-    "accidentCause": "Lost balance while on ladder",
-    "affectedParts": {
-      "upperBody": {
-        "head": "moderate",
-        "neck": "severe"
+    "accident": {
+      "accidentType": "Bicycle Collision",
+      "keywords": ["bike", "vehicle", "intersection"],
+      "accidentCause": "Hit by vehicle while crossing intersection",
+      "affectedParts": {
+        "upperBody": {
+          "head": "moderate",
+          "neck": "minor"
+        },
+        "body": {
+          "leftArm": "moderate",
+          "rightArm": "moderate",
+          "chest": "severe",
+          "back": "severe"
+        },
+        "lowerBody": {
+          "leftLeg": "moderate",
+          "rightLeg": "moderate",
+          "leftFoot": "minor",
+          "rightFoot": "minor"
+        }
       },
-      "body": {
-        "leftHand": "unaffected",
-        "rightHand": "minor",
-        "chest": "severe",
-        "back": "severe"
-      },
-      "lowerBody": {
-        "leftLeg": "moderate",
-        "rightLeg": "minor"
-      }
-    },
-    "aidRecommendation": []
-  },
-  {
-    "accidentType": "Electrocution",
-    "keywords": ["electric wire", "shock", "burn"],
-    "accidentCause": "Touched live wire while repairing socket",
-    "affectedParts": {
-      "upperBody": {
-        "head": "unaffected",
-        "neck": "minor"
-      },
-      "body": {
-        "leftHand": "severe",
-        "rightHand": "severe",
-        "chest": "moderate",
-        "back": "moderate"
-      },
-      "lowerBody": {
-        "leftLeg": "minor",
-        "rightLeg": "minor"
-      }
-    },
-    "aidRecommendation": []
-  },
-  {
-    "accidentType": "Assault",
-    "keywords": ["fight", "injury", "bruises"],
-    "accidentCause": "Physical altercation outside a bar",
-    "affectedParts": {
-      "upperBody": {
-        "head": "moderate",
-        "neck": "moderate"
-      },
-      "body": {
-        "leftHand": "minor",
-        "rightHand": "minor",
-        "chest": "moderate",
-        "back": "minor"
-      },
-      "lowerBody": {
-        "leftLeg": "minor",
-        "rightLeg": "unaffected"
-      }
-    },
-    "aidRecommendation": []
-  },
-  {
-    "accidentType": "Industrial Accident",
-    "keywords": ["factory", "machine injury", "amputation risk"],
-    "accidentCause": "Hand caught in machine",
-    "affectedParts": {
-      "upperBody": {
-        "head": "unaffected",
-        "neck": "unaffected"
-      },
-      "body": {
-        "leftHand": "severe",
-        "rightHand": "minor",
-        "chest": "unaffected",
-        "back": "unaffected"
-      },
-      "lowerBody": {
-        "leftLeg": "unaffected",
-        "rightLeg": "unaffected"
-      }
-    },
-    "aidRecommendation": []
-  },
-  {
-    "accidentType": "Sports Injury",
-    "keywords": ["soccer", "twisted ankle", "dislocated shoulder"],
-    "accidentCause": "Collision during soccer game",
-    "affectedParts": {
-      "upperBody": {
-        "head": "unaffected",
-        "neck": "minor"
-      },
-      "body": {
-        "leftHand": "minor",
-        "rightHand": "unaffected",
-        "chest": "minor",
-        "back": "moderate"
-      },
-      "lowerBody": {
-        "leftLeg": "severe",
-        "rightLeg": "minor"
-      }
-    },
-    "aidRecommendation": []
-  },
-  {
-    "accidentType": "Motorcycle Crash",
-    "keywords": ["highway", "helmet", "fracture"],
-    "accidentCause": "Lost control at high speed on curve",
-    "affectedParts": {
-      "upperBody": {
-        "head": "moderate",
-        "neck": "severe"
-      },
-      "body": {
-        "leftHand": "severe",
-        "rightHand": "severe",
-        "chest": "moderate",
-        "back": "severe"
-      },
-      "lowerBody": {
-        "leftLeg": "severe",
-        "rightLeg": "moderate"
-      }
-    },
-    "aidRecommendation": []
+      "aidRecommendation": ["stabilize neck", "check for bleeding", "keep victim calm"]
+    }
   }
 ]
