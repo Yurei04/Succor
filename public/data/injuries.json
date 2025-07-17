@@ -1,0 +1,40 @@
+[
+  {
+    "injury": "car accident",
+    "injuries": {
+      "upperBody": {
+        "head": {
+          "eyes": "minor bruising around left eye",
+          "mouth": "cut on lower lip"
+        },
+        "neck": "whiplash, stiffness reported"
+      },
+      "body": {
+        "leftHand": {
+          "wrist": "fracture",
+          "fingers": "minor lacerations"
+        },
+        "rightHand": {
+          "palm": "abrasions from impact with dashboard"
+        },
+        "chest": {
+          "ribs": "possible bruising, shallow breathing observed"
+        },
+        "stomach": {
+          "ribs": "possible bruising, shallow breathing observed"
+        },
+        "back": {
+          "ribs": "possible bruising, shallow breathing observed"
+        }
+      },
+      "lowerBody": {
+        "leftLeg": {
+          "knee": "swollen, potential ligament strain"
+        },
+        "rightLeg": {
+          "ankle": "twisted, difficulty standing"
+        }
+      }
+    },
+  }
+]

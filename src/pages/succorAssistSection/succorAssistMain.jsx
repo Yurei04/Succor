@@ -23,6 +23,7 @@ const getSeverityColor = (severity) => {
 };
 
 export default function SuccorAssistMain() {
+    const canvasRef = useRef(null);
     const [accidentData, setAccidentData] = useState([]);
     const [transcripts, setTranscripts] = useState([]);
     const [injuryMap, setInjuryMap] = useState({});
@@ -76,47 +77,52 @@ export default function SuccorAssistMain() {
         setInjuryMap(newMap);
     };
 
-
     const startRecognition = () => {
         if (!("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
-        setTranscripts((prev) => [...prev, "Speech Recognition is not supported in your browser."]);
-        return;
+            setTranscripts((prev) => [...prev, "Speech Recognition is not supported in your browser."]);
+            return;
+        }
+
+        if (isRecognizingRef.current) {
+            setTranscripts((prev) => [...prev, "Already recording."]);
+            return;
         }
 
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         const recognition = new SpeechRecognition();
         recognition.lang = "en-US";
         recognition.interimResults = false;
-        recognition.continuous = false;
-
-        recognition.onstart = () => {
-        isRecognizingRef.current = true;
-        setTranscripts((prev) => [...prev, "Recording started..."]);
-        };
+        recognition.continuous = true;
 
         recognition.onresult = (event) => {
-        const result = event.results[0][0].transcript;
-        setTranscripts((prev) => [...prev, `Recorded: "${result}"`]);
-        processTranscript(result);
+            const result = event.results[event.resultIndex][0].transcript;
+            setTranscripts((prev) => [...prev, `Recorded: "${result}"`]);
+            processTranscript(result);
         };
 
         recognition.onerror = (event) => {
-        setTranscripts((prev) => [...prev, `Error: ${event.error}`]);
+            setTranscripts((prev) => [...prev, `Error: ${event.error}`]);
         };
 
         recognition.onend = () => {
-        isRecognizingRef.current = false;
+            // Only restart if user hasn't manually stopped it
+            if (isRecognizingRef.current) {
+            recognition.start();
+            }
         };
 
         recognitionRef.current = recognition;
+        isRecognizingRef.current = true;
         recognition.start();
-    };
 
-    const stopRecognition = () => {
+        setTranscripts((prev) => [...prev, "Recording started..."]);
+        };
+
+        const stopRecognition = () => {
         if (recognitionRef.current && isRecognizingRef.current) {
-        recognitionRef.current.stop();
-        isRecognizingRef.current = false;
-        setTranscripts((prev) => [...prev, "Recording stopped."]);
+            isRecognizingRef.current = false; // Prevent onend from restarting
+            recognitionRef.current.stop();
+            setTranscripts((prev) => [...prev, "Recording stopped."]);
         }
     };
 
@@ -172,7 +178,11 @@ export default function SuccorAssistMain() {
 
         {/* RIGHT PANEL */}
         <div className="w-1/3 h-full flex flex-col items-center justify-between gap-2 p-4 border border-amber-50" id="right">
-            <div className="w-full h-1/3 border border-amber-50"></div>
+            <div className="w-full h-1/2 border border-amber-50 overflow-y-auto p-2 space-y-1">
+
+
+            </div>
+
             <div className="w-full h-1/3 border border-amber-50"></div>
             <div className="w-full h-full border border-amber-50"></div>
         </div>
