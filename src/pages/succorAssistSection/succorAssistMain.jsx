@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Meyda from "meyda";
 import ProbablityBox from "@/components/probability";
+import TodayDateBox from "@/components/dateToday";
 
 
 const bodyParts = [
@@ -275,13 +276,16 @@ export default function SuccorAssistMain() {
 
         {/* RIGHT PANEL */}
         <div className="w-1/3 h-full flex flex-col items-center justify-between gap-2 p-4 border border-amber-50" id="right">
-            <div className="w-full h-1/2 border border-amber-50 overflow-y-auto p-2 space-y-1">
+            <div className="flex flex-col items center justify-center text-center w-full h-1/2 border border-amber-50 overflow-y-auto p-2 space-y-1">
                 <h2 className="text-sm font-bold text-amber-300">Detected Emotion: {emotion}</h2>
                 <canvas ref={canvasRef} width={600} height={150} className="w-full mt-2 bg-black border border-amber-500" />
+                <div>
+                    
+                </div>
             </div>
 
-            <div className="w-full h-1/3 border border-amber-50">
-                
+            <div className="w-full h-1/3 border border-amber-50 flex flex-col items-center justify-center">
+                <TodayDateBox />
             </div>
             <div className="w-full h-full border border-amber-50">
                 {matchedAccident && (
