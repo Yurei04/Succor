@@ -1,6 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import Meyda from "meyda";
+import ProbablityBox from "@/components/probability";
+
 
 const bodyParts = [
     "head", "leftArm", "leftHand", "chest", "stomach", "rightArm", "rightHand",
@@ -23,12 +26,17 @@ const getSeverityColor = (severity) => {
 };
 
 export default function SuccorAssistMain() {
-    const canvasRef = useRef(null);
     const [accidentData, setAccidentData] = useState([]);
     const [transcripts, setTranscripts] = useState([]);
     const [injuryMap, setInjuryMap] = useState({});
+    const [matchedAccident, setMatchedAccident] = useState(null);
     const recognitionRef = useRef(null);
     const isRecognizingRef = useRef(false);
+    const canvasRef = useRef(null);
+    const [emotion, setEmotion] = useState("neutral");
+    const audioContextRef = useRef(null);
+    const analyzerRef = useRef(null);
+
 
     useEffect(() => {
         fetch("/data/accidentsData.json")
@@ -36,6 +44,86 @@ export default function SuccorAssistMain() {
         .then((data) => setAccidentData(data))
         .catch((error) => console.log("Loading Accidents Data Error:", error));
     }, []);
+
+    useEffect(() => {
+        let animationId;
+        let analyserNode;
+
+        const startAudio = async () => {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            const audioContext = new AudioContext();
+            audioContextRef.current = audioContext;
+
+            const source = audioContext.createMediaStreamSource(stream);
+
+            // Create canvas visualizer
+            analyserNode = audioContext.createAnalyser();
+            analyserNode.fftSize = 2048;
+            source.connect(analyserNode);
+
+            const bufferLength = analyserNode.fftSize;
+            const dataArray = new Uint8Array(bufferLength);
+
+            const drawWaveform = () => {
+            animationId = requestAnimationFrame(drawWaveform);
+            analyserNode.getByteTimeDomainData(dataArray);
+
+            const canvas = canvasRef.current;
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "#f59e0b"; // Amber
+
+            ctx.beginPath();
+            const sliceWidth = (canvas.width * 1.0) / bufferLength;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                const v = dataArray[i] / 128.0;
+                const y = (v * canvas.height) / 2;
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+                x += sliceWidth;
+            }
+            ctx.lineTo(canvas.width, canvas.height / 2);
+            ctx.stroke();
+            };
+
+            drawWaveform();
+
+            // Set up Meyda
+            analyzerRef.current = Meyda.createMeydaAnalyzer({
+            audioContext,
+            source,
+            bufferSize: 512,
+            featureExtractors: ["rms", "zcr", "spectralCentroid"],
+            callback: (features) => {
+                const { rms, zcr, spectralCentroid } = features;
+
+                if (rms > 0.05 && zcr > 0.1) {
+                setEmotion("nervous");
+                } else if (spectralCentroid < 1500 && rms < 0.04) {
+                setEmotion("calm");
+                } else {
+                setEmotion("neutral");
+                }
+            },
+            });
+
+            analyzerRef.current.start();
+        };
+
+        startAudio();
+
+        return () => {
+            if (analyzerRef.current) analyzerRef.current.stop();
+            if (audioContextRef.current) audioContextRef.current.close();
+            cancelAnimationFrame(animationId);
+        };
+    }, []);
+
 
     const dataMatcher = (text) => {
         return accidentData.find((item) =>
@@ -54,6 +142,8 @@ export default function SuccorAssistMain() {
             console.log("No match found for transcript:", rawText);
             return;
         }
+
+        setMatchedAccident(matched)
 
         const newMap = {};
         const affectedParts = matched.accident.affectedParts;
@@ -87,6 +177,8 @@ export default function SuccorAssistMain() {
             setTranscripts((prev) => [...prev, "Already recording."]);
             return;
         }
+
+        
 
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         const recognition = new SpeechRecognition();
@@ -179,11 +271,18 @@ export default function SuccorAssistMain() {
         {/* RIGHT PANEL */}
         <div className="w-1/3 h-full flex flex-col items-center justify-between gap-2 p-4 border border-amber-50" id="right">
             <div className="w-full h-1/2 border border-amber-50 overflow-y-auto p-2 space-y-1">
-
-
+                <h2 className="text-sm font-bold text-amber-300">Detected Emotion: {emotion}</h2>
+                <canvas ref={canvasRef} width={600} height={150} className="w-full mt-2 bg-black border border-amber-500" />
             </div>
 
-            <div className="w-full h-1/3 border border-amber-50"></div>
+            <div className="w-full h-1/3 border border-amber-50">
+                {matchedAccident && (
+                    <ProbablityBox 
+                        accident={matchedAccident}
+                        audioCheeck={emotion}
+                    />
+                )}
+            </div>
             <div className="w-full h-full border border-amber-50"></div>
         </div>
         </div>
