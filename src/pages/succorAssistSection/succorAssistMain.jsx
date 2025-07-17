@@ -263,7 +263,12 @@ export default function SuccorAssistMain() {
                 </div>
                 </div>
             </div>
-            <div className="w-full h-1/5 flex flex-col items-center justify-center border border-amber-50" id="below"></div>
+            <div className="w-full h-1/5 flex flex-col items-center justify-start border border-amber-50" id="below">
+               {matchedAccident?.accident?.aidRecommendation?.map((tip, idx) => (
+                <p key={idx} className="text-amber-200 text-sm">{tip}</p>
+                ))}
+
+            </div>
             </div>
             <div className="w-1/4 h-full flex flex-col items-center justify-center border border-amber-50" id="above"></div>
         </div>
@@ -276,14 +281,16 @@ export default function SuccorAssistMain() {
             </div>
 
             <div className="w-full h-1/3 border border-amber-50">
+                
+            </div>
+            <div className="w-full h-full border border-amber-50">
                 {matchedAccident && (
                     <ProbablityBox 
                         accident={matchedAccident}
-                        audioCheeck={emotion}
+                        emotion={emotion}
                     />
                 )}
             </div>
-            <div className="w-full h-full border border-amber-50"></div>
         </div>
         </div>
     );

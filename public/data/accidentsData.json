@@ -4,6 +4,11 @@
       "accidentType": "Fall",
       "keywords": ["elderly", "stairs", "hip fracture"],
       "accidentCause": "Fell down stairs at home",
+      "probabilities": {
+        "emergency": 0.9,
+        "hiddenEmergency": 0.95,
+        "prank": 0.05
+      },
       "affectedParts": {
         "upperBody": {
           "head": "moderate",
@@ -123,6 +128,21 @@
         }
       },
       "aidRecommendation": ["stabilize neck", "check for bleeding", "keep victim calm"]
+    }
+  },
+   {
+    "accident": {
+      "title": "Domestic Violence - Hidden",
+      "keywords": ["pizza", "order", "quiet"],
+      "probabilities": {
+        "emergency": 0.9,
+        "hiddenEmergency": 0.95,
+        "prank": 0.05
+      },
+      "affectedParts": {
+        "head": { "skull": 9 },
+        "body": { "ribs": 7 }
+      }
     }
   }
 ]
