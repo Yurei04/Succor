@@ -2,12 +2,12 @@
   {
     "accident": {
       "accidentType": "Car Crash",
-      "keywords": ["highway", "collision", "airbag"],
+      "keywords": ["highway", "collision", "airbag", "car crash"],
       "des": "A vehicle was rear-ended while traveling on the highway, causing whiplash and chest injuries from the deployed airbag.",
       "accidentCause": "Rear-ended on the highway at high speed",
       "probabilities": {
         "emergency": 0.88,
-        "hiddenEmergency": 0.65,
+        "hiddenEmergency": 0.2,
         "prank": 0.01
       },
       "affectedParts": {
@@ -36,12 +36,12 @@
   {
     "accident": {
       "accidentType": "Burn",
-      "keywords": ["kitchen", "oil spill", "cooking"],
+      "keywords": ["kitchen", "oil spill", "cooking", "burn"],
       "des": "While preparing a meal, hot oil splashed from the pan, causing burns to both hands and one arm.",
       "accidentCause": "Spilled hot oil while cooking",
       "probabilities": {
         "emergency": 0.6,
-        "hiddenEmergency": 0.7,
+        "hiddenEmergency": 0.2,
         "prank": 0.02
       },
       "affectedParts": {
@@ -75,7 +75,7 @@
       "accidentCause": "Slipped in bathroom due to wet floor",
       "probabilities": {
         "emergency": 0.7,
-        "hiddenEmergency": 0.6,
+        "hiddenEmergency": 0.2,
         "prank": 0.01
       },
       "affectedParts": {
@@ -104,12 +104,12 @@
   {
     "accident": {
       "accidentType": "Choking",
-      "keywords": ["restaurant", "steak", "airway"],
+      "keywords": ["restaurant", "steak", "airwaym","chocking"],
       "des": "A person began choking on a large piece of steak during a meal, showing signs of blocked airway.",
       "accidentCause": "Choked on meat while eating at a restaurant",
       "probabilities": {
         "emergency": 0.95,
-        "hiddenEmergency": 0.9,
+        "hiddenEmergency": 0.3,
         "prank": 0.01
       },
       "affectedParts": {
@@ -143,7 +143,7 @@
       "accidentCause": "Bike hit pothole and lost control",
       "probabilities": {
         "emergency": 0.6,
-        "hiddenEmergency": 0.4,
+        "hiddenEmergency": 0.2,
         "prank": 0.01
       },
       "affectedParts": {
@@ -177,7 +177,7 @@
       "accidentCause": "Fell into pool while unsupervised",
       "probabilities": {
         "emergency": 0.98,
-        "hiddenEmergency": 0.9,
+        "hiddenEmergency": 0.2,
         "prank": 0.0
       },
       "affectedParts": {
@@ -211,7 +211,7 @@
       "accidentCause": "Touched electrical socket with wet hands",
       "probabilities": {
         "emergency": 0.7,
-        "hiddenEmergency": 0.65,
+        "hiddenEmergency": 0.2,
         "prank": 0.01
       },
       "affectedParts": {
@@ -245,7 +245,7 @@
       "accidentCause": "Bitten by stray dog during morning walk",
       "probabilities": {
         "emergency": 0.65,
-        "hiddenEmergency": 0.5,
+        "hiddenEmergency": 0.2,
         "prank": 0.0
       },
       "affectedParts": {
@@ -313,7 +313,7 @@
       "accidentCause": "Lost balance and fell off scaffold at worksite",
       "probabilities": {
         "emergency": 0.85,
-        "hiddenEmergency": 0.75,
+        "hiddenEmergency": 0.3,
         "prank": 0.01
       },
       "affectedParts": {

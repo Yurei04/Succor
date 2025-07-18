@@ -8,8 +8,13 @@
 }
 
 body {
-  background-color: black;
+  background: linear-gradient(to bottom right, #1a1200, #b34700);
+  background-image: url("/images/bkg1.jpg"), linear-gradient(to bottom right, #1a1200, #b34700);
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
 }
+
 
 @theme inline {
   --color-background: var(--background);

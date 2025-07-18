@@ -22,7 +22,7 @@ const getSeverityColor = (severity) => {
         case "unaffected":
         return "bg-green-400";
         default:
-        return "bg-gray-200";
+        return "bg-amber-200";
     }
 };
 
@@ -220,67 +220,69 @@ export default function SuccorAssistMain() {
     };
 
     return (
-        <div className="w-full h-screen p-0 flex lg:flex-row md:flex-row sm:flex-col gap-4 items-center justify-center">
+        <div className="w-full h-screen p-0 flex lg:flex-row md:flex-row sm:flex-col gap-4 items-center justify-center bg-amber-900/20 backdrop-blur-sm">
         {/* LEFT PANEL */}
-        <div className="w-1/3 h-full flex flex-col items-center justify-between gap-2 p-4 border border-amber-50" id="left">
-            <div className="w-full h-1/2 border border-amber-50 overflow-y-auto p-2 space-y-1">
+        <div className="w-1/3 h-full flex flex-col items-center justify-between gap-2 p-4 border border-amber-500 bg-amber-700/20 backdrop-blur-md" id="left">
+            <div className="w-full h-1/2 border border-amber-500 overflow-y-auto p-2 space-y-1 bg-amber-900/70 backdrop-blur-md">
+            <h2 className="text-amber-300 text-center">Transcript Logs</h2>
             {transcripts.map((t, idx) => (
                 <p key={idx} className="text-amber-200 text-sm">{t}</p>
             ))}
             </div>
-            <div className="w-full h-1/2 border border-amber-50 flex flex-col gap-2 p-2 items-center justify-center">
-                <Button onClick={startRecognition} className="w-full">Start</Button>
-                <Button onClick={stopRecognition} className="w-full">Stop</Button>
+            <div className="w-full h-1/2 border text-center border-amber-500 flex flex-col gap-2 p-2 items-center justify-center bg-amber-900/70 backdrop-blur-md">
+                <h2 className="text-amber-300">Controls</h2>
+                <Button variant="ghost" onClick={startRecognition} className="w-full border text-amber-300 border-amber-500 bg-amber-600/20 hover:bg-amber-900/70 cursor-pointer">Start</Button>
+                <Button variant="ghost" onClick={stopRecognition} className="w-full border text-amber-300 border-amber-500 bg-amber-600/20 hover:bg-amber-900/70 cursor-pointer">Stop</Button>
             </div>
         </div>
 
         {/* CENTER BODY */}
-        <div className="w-full h-full flex lg:flex-row sm:flex-col gap-4 p-4 items-center justify-between border border-amber-50">
+        <div className="w-full h-full flex lg:flex-row sm:flex-col gap-4 p-4 items-center justify-between border border-amber-500">
             <div className="w-full h-full flex flex-col items-center justify-center p-4 gap-2">
-            <div className="w-full h-full flex flex-col p-2 items-center justify-center border border-amber-50" id="center">
-                <div className={`h-[50px] w-[50px] border border-black hover:bg-white ${getSeverityColor(injuryMap.head)}`} id="head" />
+            <div className="w-full h-full flex flex-col p-2 items-center justify-center border border-amber-500 bg-amber-900/10 backdrop-blur-md" id="center">
+                <div className={`h-[50px] w-[50px] border border-black hover:bg-amber-600 ${getSeverityColor(injuryMap.head)}`} id="head" />
                 <div className="flex flex-row">
                 <div className="flex flex-col">
-                    <div className={`h-[100px] w-[50px] border border-black hover:bg-white ${getSeverityColor(injuryMap.leftArm)}`} />
-                    <div className={`h-[20px] w-[50px] border border-black hover:bg-white ${getSeverityColor(injuryMap.leftHand)}`} />
+                    <div className={`h-[100px] w-[50px] border border-black hover:bg-amber-600 ${getSeverityColor(injuryMap.leftArm)}`} />
+                    <div className={`h-[20px] w-[50px] border border-black hover:bg-amber-600 ${getSeverityColor(injuryMap.leftHand)}`} />
                 </div>
                 <div className="flex flex-col">
-                    <div className={`h-[50px] w-[100px] border border-black hover:bg-white ${getSeverityColor(injuryMap.chest)}`} />
-                    <div className={`h-[50px] w-[100px] border border-black hover:bg-white ${getSeverityColor(injuryMap.stomach)}`} />
+                    <div className={`h-[50px] w-[100px] border border-black hover:bg-amber-600 ${getSeverityColor(injuryMap.chest)}`} />
+                    <div className={`h-[50px] w-[100px] border border-black hover:bg-amber-600 ${getSeverityColor(injuryMap.stomach)}`} />
                 </div>
                 <div className="flex flex-col">
-                    <div className={`h-[100px] w-[50px] border border-black hover:bg-white ${getSeverityColor(injuryMap.rightArm)}`} />
-                    <div className={`h-[20px] w-[50px] border border-black hover:bg-white ${getSeverityColor(injuryMap.rightHand)}`} />
+                    <div className={`h-[100px] w-[50px] border border-black hover:bg-amber-600 ${getSeverityColor(injuryMap.rightArm)}`} />
+                    <div className={`h-[20px] w-[50px] border border-black hover:bg-amber-600 ${getSeverityColor(injuryMap.rightHand)}`} />
                 </div>
                 </div>
                 <div className="flex flex-row relative -top-5">
                 <div className="flex flex-col">
-                    <div className={`h-[100px] w-[50px] border border-black hover:bg-white ${getSeverityColor(injuryMap.leftLeg)}`} />
-                    <div className={`h-[20px] w-[50px] border border-black hover:bg-white ${getSeverityColor(injuryMap.leftFoot)}`} />
+                    <div className={`h-[100px] w-[50px] border border-black hover:bg-amber-600 ${getSeverityColor(injuryMap.leftLeg)}`} />
+                    <div className={`h-[20px] w-[50px] border border-black hover:bg-amber-600 ${getSeverityColor(injuryMap.leftFoot)}`} />
                 </div>
                 <div className="flex flex-col">
-                    <div className={`h-[100px] w-[50px] border border-black hover:bg-white ${getSeverityColor(injuryMap.rightLeg)}`} />
-                    <div className={`h-[20px] w-[50px] border border-black hover:bg-white ${getSeverityColor(injuryMap.rightFoot)}`} />
+                    <div className={`h-[100px] w-[50px] border border-black hover:bg-amber-600 ${getSeverityColor(injuryMap.rightLeg)}`} />
+                    <div className={`h-[20px] w-[50px] border border-black hover:bg-amber-600 ${getSeverityColor(injuryMap.rightFoot)}`} />
                 </div>
                 </div>
             </div>
-            <div className="w-full h-1/5 flex flex-col items-center justify-start border border-amber-50" id="below">
-                <h2 className="text-white">Aid Recommendation</h2>
+            <div className="w-full h-1/5 flex flex-col items-center justify-start border border-amber-500 bg-amber-900/20 backdrop-blur-md" id="below">
+                <h2 className="text-amber-300">Aid Recommendation</h2>
                 {matchedAccident?.accident?.aidRecommendation?.map((tip, idx) => (
                     <p key={idx} className="text-amber-200 text-sm">{tip}</p>
                 ))}
 
             </div>
             </div>
-            <div className="w-1/4 h-full p-2 flex flex-col items-center justify-start border text-white border-amber-50" id="above">
-             <h2 className="text-white">Call Description</h2>
+            <div className="w-1/4 h-full p-2 flex flex-col items-center justify-start border text-amber-300 border-amber-500 bg-amber-900/20 backdrop-blur-md" id="above">
+             <h2 className="text-amber-300">Call Description</h2>
                 {matchedAccident?.accident?.des}
             </div>
         </div>
 
         {/* RIGHT PANEL */}
-        <div className="w-1/3 h-full flex flex-col items-center justify-between gap-2 p-4 border border-amber-50" id="right">
-            <div className="flex flex-col items center justify-center text-center w-full h-1/2 border border-amber-50 overflow-y-auto p-2 space-y-1">
+        <div className="w-1/3 h-full flex flex-col items-center justify-between gap-2 p-4 border border-amber-500 bg-amber-700/20 backdrop-blur-md" id="right">
+            <div className="flex flex-col items center justify-center text-center w-full h-1/2 border border-amber-500 bg-amber-900/70 backdrop-blur-md overflow-y-auto p-2 space-y-1">
                 <h2 className="text-sm font-bold text-amber-300">Detected Emotion: {emotion}</h2>
                 <canvas ref={canvasRef} width={600} height={150} className="w-full mt-2 bg-black border border-amber-500" />
                 <div>
@@ -288,11 +290,11 @@ export default function SuccorAssistMain() {
                 </div>
             </div>
 
-            <div className="w-full h-1/3 border border-amber-50 flex flex-col items-center justify-center">
+            <div className="w-full h-1/3 border border-amber-500 flex flex-col items-center justify-center bg-amber-900/70 backdrop-blur-md">
                 <TodayDateBox />
             </div>
-            <div className="w-full h-full border text-center border-amber-50">
-                <h2 className="text-white">Probablity</h2>
+            <div className="w-full h-full border text-center border-amber-500 bg-amber-900/70 backdrop-blur-md">
+                <h2 className="text-amber-300">Probablity</h2>
                 {matchedAccident && (
                     <ProbablityBox 
                         accident={matchedAccident}
