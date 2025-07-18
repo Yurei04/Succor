@@ -1,148 +1,342 @@
 [
   {
     "accident": {
-      "accidentType": "Fall",
-      "keywords": ["elderly", "stairs", "hip fracture"],
-      "accidentCause": "Fell down stairs at home",
+      "accidentType": "Car Crash",
+      "keywords": ["highway", "collision", "airbag"],
+      "des": "A vehicle was rear-ended while traveling on the highway, causing whiplash and chest injuries from the deployed airbag.",
+      "accidentCause": "Rear-ended on the highway at high speed",
       "probabilities": {
-        "emergency": 0.9,
-        "hiddenEmergency": 0.95,
-        "prank": 0.05
+        "emergency": 0.88,
+        "hiddenEmergency": 0.65,
+        "prank": 0.01
       },
       "affectedParts": {
         "upperBody": {
-          "head": "moderate",
-          "neck": "minor"
+          "head": "severe",
+          "neck": "moderate"
         },
         "body": {
           "back": "moderate",
-          "chest": "minor"
+          "chest": "severe",
+          "leftArm": "minor",
+          "leftHand": "unaffected",
+          "rightArm": "moderate",
+          "rightHand": "minor"
         },
         "lowerBody": {
-          "leftLeg": "severe",
-          "rightLeg": "moderate",
-          "leftFoot": "minor",
+          "leftLeg": "moderate",
+          "rightLeg": "minor",
+          "leftFoot": "unaffected",
           "rightFoot": "unaffected"
         }
       },
-      "aidRecommendation": ["keep the person still", "elevate legs", "apply cold compress"]
+      "aidRecommendation": ["check for breathing", "stabilize neck", "call emergency services"]
     }
   },
   {
     "accident": {
       "accidentType": "Burn",
-      "keywords": ["kitchen", "hot oil", "cooking"],
-      "accidentCause": "Hot oil spilled while frying food",
+      "keywords": ["kitchen", "oil spill", "cooking"],
+      "des": "While preparing a meal, hot oil splashed from the pan, causing burns to both hands and one arm.",
+      "accidentCause": "Spilled hot oil while cooking",
+      "probabilities": {
+        "emergency": 0.6,
+        "hiddenEmergency": 0.7,
+        "prank": 0.02
+      },
       "affectedParts": {
         "upperBody": {
           "head": "unaffected",
-          "neck": "minor"
+          "neck": "unaffected"
         },
         "body": {
-          "leftArm": "severe",
-          "rightArm": "moderate",
+          "back": "unaffected",
+          "chest": "minor",
+          "leftArm": "moderate",
           "leftHand": "severe",
-          "rightHand": "moderate",
-          "chest": "moderate"
+          "rightArm": "minor",
+          "rightHand": "minor"
         },
         "lowerBody": {
-          "leftLeg": "minor",
-          "rightLeg": "unaffected"
+          "leftLeg": "unaffected",
+          "rightLeg": "unaffected",
+          "leftFoot": "unaffected",
+          "rightFoot": "unaffected"
         }
       },
-      "aidRecommendation": ["cool burn with water", "cover with clean cloth", "seek medical help"]
+      "aidRecommendation": ["rinse with cool water", "apply burn ointment", "cover with sterile cloth"]
     }
   },
   {
     "accident": {
-      "accidentType": "Sports Injury",
-      "keywords": ["football", "twisted ankle", "tackle"],
-      "accidentCause": "Tackled during football game",
+      "accidentType": "Fall",
+      "keywords": ["slippery", "bathroom", "tile"],
+      "des": "An individual slipped on wet bathroom tiles, landing on their back and hitting their elbow.",
+      "accidentCause": "Slipped in bathroom due to wet floor",
+      "probabilities": {
+        "emergency": 0.7,
+        "hiddenEmergency": 0.6,
+        "prank": 0.01
+      },
+      "affectedParts": {
+        "upperBody": {
+          "head": "minor",
+          "neck": "minor"
+        },
+        "body": {
+          "back": "moderate",
+          "chest": "unaffected",
+          "leftArm": "moderate",
+          "leftHand": "minor",
+          "rightArm": "unaffected",
+          "rightHand": "unaffected"
+        },
+        "lowerBody": {
+          "leftLeg": "minor",
+          "rightLeg": "unaffected",
+          "leftFoot": "unaffected",
+          "rightFoot": "unaffected"
+        }
+      },
+      "aidRecommendation": ["assist to seated position", "apply cold compress", "observe for concussion"]
+    }
+  },
+  {
+    "accident": {
+      "accidentType": "Choking",
+      "keywords": ["restaurant", "steak", "airway"],
+      "des": "A person began choking on a large piece of steak during a meal, showing signs of blocked airway.",
+      "accidentCause": "Choked on meat while eating at a restaurant",
+      "probabilities": {
+        "emergency": 0.95,
+        "hiddenEmergency": 0.9,
+        "prank": 0.01
+      },
+      "affectedParts": {
+        "upperBody": {
+          "head": "moderate",
+          "neck": "severe"
+        },
+        "body": {
+          "back": "unaffected",
+          "chest": "moderate",
+          "leftArm": "minor",
+          "leftHand": "minor",
+          "rightArm": "minor",
+          "rightHand": "minor"
+        },
+        "lowerBody": {
+          "leftLeg": "unaffected",
+          "rightLeg": "unaffected",
+          "leftFoot": "unaffected",
+          "rightFoot": "unaffected"
+        }
+      },
+      "aidRecommendation": ["perform Heimlich maneuver", "monitor breathing", "call emergency services"]
+    }
+  },
+  {
+    "accident": {
+      "accidentType": "Bike Crash",
+      "keywords": ["pothole", "helmet", "urban"],
+      "des": "A cyclist lost control after hitting a pothole, causing injuries to the shoulder and leg.",
+      "accidentCause": "Bike hit pothole and lost control",
+      "probabilities": {
+        "emergency": 0.6,
+        "hiddenEmergency": 0.4,
+        "prank": 0.01
+      },
+      "affectedParts": {
+        "upperBody": {
+          "head": "minor",
+          "neck": "minor"
+        },
+        "body": {
+          "back": "minor",
+          "chest": "minor",
+          "leftArm": "moderate",
+          "leftHand": "minor",
+          "rightArm": "unaffected",
+          "rightHand": "unaffected"
+        },
+        "lowerBody": {
+          "leftLeg": "severe",
+          "rightLeg": "moderate",
+          "leftFoot": "unaffected",
+          "rightFoot": "unaffected"
+        }
+      },
+      "aidRecommendation": ["clean wounds", "immobilize leg", "apply cold compress"]
+    }
+  },
+  {
+    "accident": {
+      "accidentType": "Drowning",
+      "keywords": ["pool", "child", "unattended"],
+      "des": "A young child was found unresponsive in a backyard pool after falling in unnoticed.",
+      "accidentCause": "Fell into pool while unsupervised",
+      "probabilities": {
+        "emergency": 0.98,
+        "hiddenEmergency": 0.9,
+        "prank": 0.0
+      },
+      "affectedParts": {
+        "upperBody": {
+          "head": "severe",
+          "neck": "severe"
+        },
+        "body": {
+          "back": "moderate",
+          "chest": "severe",
+          "leftArm": "minor",
+          "leftHand": "minor",
+          "rightArm": "minor",
+          "rightHand": "minor"
+        },
+        "lowerBody": {
+          "leftLeg": "minor",
+          "rightLeg": "minor",
+          "leftFoot": "unaffected",
+          "rightFoot": "unaffected"
+        }
+      },
+      "aidRecommendation": ["perform CPR", "call emergency services", "keep warm after revival"]
+    }
+  },
+  {
+    "accident": {
+      "accidentType": "Electrocution",
+      "keywords": ["plug", "shock", "wet hands"],
+      "des": "The victim experienced a strong shock while plugging in a device with wet hands.",
+      "accidentCause": "Touched electrical socket with wet hands",
+      "probabilities": {
+        "emergency": 0.7,
+        "hiddenEmergency": 0.65,
+        "prank": 0.01
+      },
       "affectedParts": {
         "upperBody": {
           "head": "minor",
           "neck": "unaffected"
         },
         "body": {
-          "leftArm": "unaffected",
+          "back": "unaffected",
+          "chest": "moderate",
+          "leftArm": "moderate",
+          "leftHand": "severe",
           "rightArm": "minor",
-          "chest": "minor"
+          "rightHand": "moderate"
         },
         "lowerBody": {
-          "leftLeg": "severe",
-          "rightLeg": "moderate",
-          "leftFoot": "severe",
-          "rightFoot": "minor"
+          "leftLeg": "unaffected",
+          "rightLeg": "unaffected",
+          "leftFoot": "unaffected",
+          "rightFoot": "unaffected"
         }
       },
-      "aidRecommendation": ["immobilize leg", "apply ice", "elevate foot"]
+      "aidRecommendation": ["disconnect power", "do not touch directly", "call emergency services"]
     }
   },
   {
     "accident": {
-      "accidentType": "Electric Shock",
-      "keywords": ["wiring", "outlet", "electrocution"],
-      "accidentCause": "Touched exposed wire during repair",
+      "accidentType": "Animal Bite",
+      "keywords": ["dog", "bite", "street"],
+      "des": "A stray dog bit the individual’s right leg while walking near a neighborhood market.",
+      "accidentCause": "Bitten by stray dog during morning walk",
+      "probabilities": {
+        "emergency": 0.65,
+        "hiddenEmergency": 0.5,
+        "prank": 0.0
+      },
       "affectedParts": {
         "upperBody": {
           "head": "unaffected",
           "neck": "unaffected"
         },
         "body": {
-          "leftArm": "severe",
-          "rightArm": "severe",
-          "leftHand": "severe",
-          "rightHand": "severe",
-          "chest": "moderate",
-          "back": "moderate"
+          "back": "unaffected",
+          "chest": "unaffected",
+          "leftArm": "unaffected",
+          "leftHand": "unaffected",
+          "rightArm": "unaffected",
+          "rightHand": "unaffected"
         },
         "lowerBody": {
-          "leftLeg": "minor",
-          "rightLeg": "minor"
+          "leftLeg": "unaffected",
+          "rightLeg": "moderate",
+          "leftFoot": "unaffected",
+          "rightFoot": "minor"
         }
       },
-      "aidRecommendation": ["do not touch victim", "turn off power", "call emergency services immediately"]
+      "aidRecommendation": ["wash the bite area", "apply antiseptic", "seek rabies vaccination"]
     }
   },
   {
     "accident": {
-      "accidentType": "Bicycle Collision",
-      "keywords": ["bike", "vehicle", "intersection"],
-      "accidentCause": "Hit by vehicle while crossing intersection",
+      "accidentType": "Sports Injury",
+      "keywords": ["soccer", "sprain", "twist"],
+      "des": "A soccer player twisted their ankle during a sudden turn, leading to a sprain and bruising.",
+      "accidentCause": "Twisted ankle while pivoting during soccer match",
+      "probabilities": {
+        "emergency": 0.4,
+        "hiddenEmergency": 0.3,
+        "prank": 0.01
+      },
       "affectedParts": {
         "upperBody": {
-          "head": "moderate",
-          "neck": "minor"
+          "head": "unaffected",
+          "neck": "unaffected"
         },
         "body": {
-          "leftArm": "moderate",
-          "rightArm": "moderate",
-          "chest": "severe",
-          "back": "severe"
+          "back": "unaffected",
+          "chest": "unaffected",
+          "leftArm": "unaffected",
+          "leftHand": "unaffected",
+          "rightArm": "unaffected",
+          "rightHand": "unaffected"
+        },
+        "lowerBody": {
+          "leftLeg": "minor",
+          "rightLeg": "moderate",
+          "leftFoot": "unaffected",
+          "rightFoot": "severe"
+        }
+      },
+      "aidRecommendation": ["rest and elevate foot", "apply ice", "wrap with compression bandage"]
+    }
+  },
+  {
+    "accident": {
+      "accidentType": "Construction Injury",
+      "keywords": ["scaffold", "fall", "helmet"],
+      "des": "A construction worker fell off a low scaffold, injuring the back and arm despite wearing a helmet.",
+      "accidentCause": "Lost balance and fell off scaffold at worksite",
+      "probabilities": {
+        "emergency": 0.85,
+        "hiddenEmergency": 0.75,
+        "prank": 0.01
+      },
+      "affectedParts": {
+        "upperBody": {
+          "head": "minor",
+          "neck": "moderate"
+        },
+        "body": {
+          "back": "severe",
+          "chest": "moderate",
+          "leftArm": "severe",
+          "leftHand": "minor",
+          "rightArm": "minor",
+          "rightHand": "minor"
         },
         "lowerBody": {
           "leftLeg": "moderate",
           "rightLeg": "moderate",
           "leftFoot": "minor",
-          "rightFoot": "minor"
+          "rightFoot": "unaffected"
         }
       },
-      "aidRecommendation": ["stabilize neck", "check for bleeding", "keep victim calm"]
-    }
-  },
-   {
-    "accident": {
-      "title": "Domestic Violence - Hidden",
-      "keywords": ["pizza", "order", "quiet"],
-      "probabilities": {
-        "emergency": 0.9,
-        "hiddenEmergency": 0.95,
-        "prank": 0.05
-      },
-      "affectedParts": {
-        "head": { "skull": 9 },
-        "body": { "ribs": 7 }
-      }
+      "aidRecommendation": ["stabilize spine", "call 911", "do not move the person"]
     }
   }
 ]
